@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Plus, Search, Edit, Eye, Package } from "lucide-react";
 import { Button } from "@/components/ui/button.jsx";
 import { Input } from "@/components/ui/input.jsx";
 import {
@@ -18,7 +19,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table.jsx";
-import { Plus, Search, Edit, Eye, Package } from "lucide-react";
 import { sampleTourProducts } from "@/data/sampleData";
 
 export default function ProductList() {
@@ -45,7 +45,7 @@ export default function ProductList() {
   };
 
   return (
-    <div>
+    <div className="container mx-auto p-6">
       <Card>
         <CardHeader>
           <div className="flex items-center justify-between">

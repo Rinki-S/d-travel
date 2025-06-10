@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Search, CreditCard, Receipt, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button.jsx";
 import { Input } from "@/components/ui/input.jsx";
 import {
@@ -18,7 +19,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table.jsx";
-import { Search, CreditCard, Receipt, Filter } from "lucide-react";
 import { samplePayments } from "@/data/sampleData";
 
 export default function PaymentList() {
@@ -64,7 +64,7 @@ export default function PaymentList() {
   );
 
   return (
-    <div>
+    <div className="container mx-auto p-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         <Card>
           <CardContent className="p-6">

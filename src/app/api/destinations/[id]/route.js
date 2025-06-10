@@ -3,7 +3,7 @@ import {
   getDestinationById,
   updateDestination,
   deleteDestination,
-} from "@/lib/database";
+} from "@/lib/db";
 
 export async function GET(request, { params }) {
   try {

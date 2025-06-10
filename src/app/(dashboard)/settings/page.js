@@ -1,3 +1,4 @@
+import { Settings, Save } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -6,11 +7,10 @@ import {
   CardTitle,
 } from "@/components/ui/card.jsx";
 import { Button } from "@/components/ui/button.jsx";
-import { Settings, Save } from "lucide-react";
 
 export default function SettingsPage() {
   return (
-    <div className="p-6">
+    <div className="container mx-auto p-6">
       <Card>
         <CardHeader>
           <div className="flex items-center space-x-3">

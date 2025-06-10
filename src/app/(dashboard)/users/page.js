@@ -1,3 +1,4 @@
+import { Users, Plus, Shield } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -6,7 +7,6 @@ import {
   CardTitle,
 } from "@/components/ui/card.jsx";
 import { Button } from "@/components/ui/button.jsx";
-import { Users, Plus, Shield } from "lucide-react";
 
 export default function UsersPage() {
   const mockUsers = [

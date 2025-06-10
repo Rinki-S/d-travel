@@ -1,3 +1,4 @@
+import { DollarSign, TrendingUp, Download } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -6,7 +7,6 @@ import {
   CardTitle,
 } from "@/components/ui/card.jsx";
 import { Button } from "@/components/ui/button.jsx";
-import { DollarSign, TrendingUp, Download } from "lucide-react";
 
 export default function FinancePage() {
   const financeData = [
@@ -16,7 +16,7 @@ export default function FinancePage() {
   ];
 
   return (
-    <div className="p-6">
+    <div className="container mx-auto p-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         <Card>
           <CardContent className="p-6">

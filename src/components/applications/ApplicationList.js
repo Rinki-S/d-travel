@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Plus, Search, Eye, FileText, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button.jsx";
 import { Input } from "@/components/ui/input.jsx";
 import {
@@ -18,7 +19,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table.jsx";
-import { Plus, Search, Eye, FileText, Phone, Mail } from "lucide-react";
 import { sampleApplications } from "@/data/sampleData";
 
 export default function ApplicationList() {
@@ -47,7 +47,7 @@ export default function ApplicationList() {
   };
 
   return (
-    <div>
+    <div className="container mx-auto p-6">
       <Card>
         <CardHeader>
           <div className="flex items-center justify-between">

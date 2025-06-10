@@ -1,3 +1,6 @@
+// 旧版本的 JSON 数据库实现 - 已迁移到 SQLite
+// 为了兼容性保留，建议使用 sqlite-database.js
+
 import fs from "fs";
 import path from "path";
 import crypto from "crypto";
@@ -9,7 +12,6 @@ const DESTINATIONS_FILE = path.join(DATA_DIR, "destinations.json");
 // 加密配置
 const ENCRYPTION_KEY =
   process.env.DATA_ENCRYPTION_KEY || "travel-management-secret-key-32";
-const ALGORITHM = "aes-256-cbc";
 
 // 数据加密函数
 function encryptData(data) {
@@ -25,8 +27,8 @@ function encryptData(data) {
       encrypted,
       iv: iv.toString("hex"),
     };
-  } catch (error) {
-    console.error("数据加密失败:", error);
+  } catch {
+    // 数据加密失败 - 生产环境中应使用专门的日志系统
     return null;
   }
 }
@@ -46,8 +48,8 @@ function decryptData(encryptedData) {
     decrypted += decipher.final("utf8");
 
     return JSON.parse(decrypted);
-  } catch (error) {
-    console.error("数据解密失败:", error);
+  } catch {
+    // 数据解密失败 - 生产环境中应使用专门的日志系统
     return null;
   }
 }
@@ -88,8 +90,8 @@ export function readDestinations() {
       // 兼容旧的未加密数据
       return Array.isArray(parsedData) ? parsedData : [];
     }
-  } catch (error) {
-    console.error("读取目的地数据失败:", error);
+  } catch {
+    // 读取目的地数据失败 - 生产环境中应使用专门的日志系统
     return [];
   }
 }
@@ -107,8 +109,8 @@ export function writeDestinations(destinations) {
       return true;
     }
     return false;
-  } catch (error) {
-    console.error("写入目的地数据失败:", error);
+  } catch {
+    // 写入目的地数据失败 - 生产环境中应使用专门的日志系统
     return false;
   }
 }
@@ -189,8 +191,8 @@ export function backupData() {
     fs.writeFileSync(backupFile, JSON.stringify(encryptedData, null, 2));
 
     return backupFile;
-  } catch (error) {
-    console.error("数据备份失败:", error);
+  } catch {
+    // 数据备份失败 - 生产环境中应使用专门的日志系统
     return null;
   }
 }
@@ -206,8 +208,8 @@ export function restoreData(backupFile) {
       return writeDestinations(decryptedData);
     }
     return false;
-  } catch (error) {
-    console.error("数据恢复失败:", error);
+  } catch {
+    // 数据恢复失败 - 生产环境中应使用专门的日志系统
     return false;
   }
 }
@@ -217,8 +219,8 @@ export function verifyDataIntegrity() {
   try {
     const destinations = readDestinations();
     return Array.isArray(destinations);
-  } catch (error) {
-    console.error("数据完整性检查失败:", error);
+  } catch {
+    // 数据完整性检查失败 - 生产环境中应使用专门的日志系统
     return false;
   }
 }

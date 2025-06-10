@@ -42,3 +42,16 @@ next-env.d.ts
 
 # database files
 /data/*.json
+
+# temporary files and reports
+*.improved.js
+*.fixed.js
+fix-*.md
+test-fixes-*.md
+integration-test-*.md
+lint-report.*
+coverage/
+*.log
+
+# ESLint cache
+.eslintcache

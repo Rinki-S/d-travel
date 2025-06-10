@@ -1,5 +1,6 @@
 "use client";
 
+import { X, MapPin, Clock, Users, Star } from "lucide-react";
 import { Button } from "@/components/ui/button.jsx";
 import {
   Card,
@@ -7,9 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card.jsx";
-import { X, Edit, MapPin, Clock, Users, Star } from "lucide-react";
 
-export default function DestinationDetail({ destination, onClose, onEdit }) {
+export default function DestinationDetail({ destination, onClose }) {
   const getStatusColor = (status) => {
     switch (status) {
       case "已发布":
@@ -30,10 +30,6 @@ export default function DestinationDetail({ destination, onClose, onEdit }) {
           <div className="flex items-center justify-between">
             <CardTitle className="text-2xl">{destination.name}</CardTitle>
             <div className="flex items-center space-x-2">
-              <Button variant="outline" onClick={onEdit}>
-                <Edit className="mr-2 h-4 w-4" />
-                编辑
-              </Button>
               <Button variant="ghost" size="sm" onClick={onClose}>
                 <X className="h-4 w-4" />
               </Button>

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAllDestinations, createDestination } from "@/lib/database";
+import { getAllDestinations, createDestination } from "@/lib/db";
 
 export async function GET() {
   try {
@@ -8,7 +8,7 @@ export async function GET() {
       success: true,
       data: destinations,
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       {
         success: false,
@@ -41,11 +41,11 @@ export async function POST(request) {
       },
       { status: 201 }
     );
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       {
         success: false,
-        error: "创建目的地失败",
+        error: "创建目的地失败，请检查数据格式",
       },
       { status: 500 }
     );
